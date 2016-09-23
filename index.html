@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="srvcLecture" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Intro to Angular Services</title>
+</head>
+<body ng-controller="mainCtrl">
+  <!-- {{test}} -->
+
+  <div class="">
+
+    <h1>Trainers</h1>
+    <ul ng-repeat="trainer in trainers">
+      <li>
+        {{ trainer.name }} id: {{ trainer.id }}
+        <a href="" ng-click="toggleEdit = !toggleEdit">Edit</a>
+        <a href="" ng-click="removeTrainer( trainer )">Delete</a>
+      </li>
+
+      <li ng-show="toggleEdit">
+        <input type="text" ng-model="trainer.name" />
+        <input type="submit" ng-click="toggleEdit = !toggleEdit" />
+      </li>
+
+    </ul>
+
+    <h3>Add Trainers</h3>
+    <form ng-submit="addTrainer()">
+      <input ng-model="trainer.name" type="text" placeholder="Trainer Name" />
+      <input type="submit" />
+    </form>
+  </div>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.js"></script>
+  <script type="text/javascript" src="app.js"></script>
+  <script type="text/javascript" src="mySrvc.js"></script>
+  <script type="text/javascript" src="myCtrl.js"></script>
+</body>
+</html>
